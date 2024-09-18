@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getProductos } from '../../asynmock'; 
+import { getProductos, getProductosPorCategorias } from '../../asynmock'; 
 import ItemList from '../ItemList/ItemList';  
+import { useParams } from 'react-router-dom'; 
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+  const { idCategoria } = useParams(); // O
 
-  useEffect(() => {
-    getProductos()
-      .then(respuesta => setProductos(respuesta))
-      .catch(error => console.log(error));
-  }, []);
+
+      useEffect(() => {
+      const funcionProductos = idCategoria ? getProductosPorCategorias : getProductos;
+      funcionProductos(idCategoria)
+        .then(respuesta => setProductos(respuesta))
+      }, [])
 
   return (
     <>
@@ -21,3 +24,4 @@ const ItemListContainer = () => {
 
 // Exportación por defecto del componente
 export default ItemListContainer;
+
