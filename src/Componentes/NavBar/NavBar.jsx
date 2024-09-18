@@ -10,7 +10,7 @@ export const NavBar = () => {
       </h1>
       <nav>
         <li>
-          <Link to="/category/remeras">Remeras</Link> {/* Enlace a la categoría "remeras" */}
+          <Link to="/category/remeras">Remeras</Link> {/* Enladce a la categoría "remeras" */}
         </li>
         <li>
           <Link to="/category/pantalones">Pantalones</Link> {/* Enlace a la categoría "pantalones" */}
