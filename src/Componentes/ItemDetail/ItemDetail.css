@@ -1,0 +1,11 @@
+.contenedorItem{
+    text-align: center;
+    border: 1px solid black;
+    margin: 4rem;
+}
+
+img {
+    width: 45vh;
+    height: 45vh;
+    object-fit: contain;
+}

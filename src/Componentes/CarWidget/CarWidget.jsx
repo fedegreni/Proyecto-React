@@ -1,4 +1,4 @@
-import React from 'react';
+
 import carrito from '../../imagenes/107831.png'; 
 import './CarWidget.css'; 
 
