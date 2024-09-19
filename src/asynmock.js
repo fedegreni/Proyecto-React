@@ -3,28 +3,28 @@ const misProductos=[
         id: 1,
         nombre: 'Remera amarilla',
         precio: 4000,
-        img: 'src/assets/remera-amarilla.jpg',
+        img: '../src/assets/remera-amarilla.jpg',
         IdCat: "remeras"
     },
     {
         id: 2,
         nombre: 'Zapatilla bullpadel',
         precio: 80000,
-        img: 'src/assets/zapatilla-bullpadel.jpg',
+        img: '../src/assets/zapatilla-bullpadel.jpg',
         IdCat: "zapatillas"
     },
     {
         id: 3,
         nombre: 'Pantalon azul',
         precio: 7000,
-        img: 'src/assets/pantalon-azul.jpg',
+        img: '../src/assets/pantalon-azul.jpg',
         IdCat: "pantalones"
     },
     {
         id: 4,
         nombre: 'Remera negra',
         precio: 4000,
-        img: 'src/assets/remera-negra.jpg',
+        img: '../src/assets/remera-negra.jpg',
         IdCat: "remeras"
     },
 ]
@@ -47,10 +47,10 @@ export const getUnProducto = (id) =>{
 } 
 
 
-export const getProductosPorCategorias = (id) => {
+export const getProductosPorCategorias = (idCategoria) => {
     return new Promise((resolve,) => {
         setTimeout(() => {
-            const producto = misProductos.filter(item => item.id === id)
+            const producto = misProductos.filter(item => item.IdCat === idCategoria)
             resolve(producto)
         }, 100)
     })

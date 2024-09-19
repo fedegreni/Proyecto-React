@@ -1,31 +1,23 @@
 import { useState, useEffect } from 'react';
-import { getProductos } from '../../asynmock'; 
-import ItemList from '../ItemList/ItemList';  
-import { useParams } from 'react-router-dom'; // Importamos useParams
+import { getUnProducto } from '../../asynmock'; 
+import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom'; 
 
-const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const { id } = useParams(); // Obtener el id de la categoría desde los parámetros
+const ItemDetailContainer = () => {
+  const [producto, setProducto] = useState(null);
+  const { id } = useParams(); 
 
   useEffect(() => {
-    getProductos()
-      .then(respuesta => {
-        if (id) {
-          const productosFiltrados = respuesta.filter(producto => producto.categoria === id);
-          setProductos(productosFiltrados); // Filtrar productos por categoría
-        } else {
-          setProductos(respuesta); // Si no hay categoría, mostrar todos los productos
-        }
-      })
-      .catch(error => console.log(error));
+    getUnProducto(Number(id))  
+      .then(respuesta => setProducto(respuesta))
+      .catch(error => console.error("Error al cargar el producto:", error));  // Manejo de errores
   }, [id]);
 
   return (
-    <>
-      <h2 style={{ textAlign: 'center' }}>Mis productos</h2>
-      <ItemList productos={productos} />
-    </>
+    <div>
+      {producto && <ItemDetail {...producto} />}
+    </div>
   );
-}
+};
 
-export default ItemListContainer;
+export default ItemDetailContainer;

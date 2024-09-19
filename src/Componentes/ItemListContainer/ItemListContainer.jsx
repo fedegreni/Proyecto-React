@@ -5,14 +5,14 @@ import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const { idCategoria } = useParams(); // O
+  const { idCategoria } = useParams(); 
 
-
-      useEffect(() => {
-      const funcionProductos = idCategoria ? getProductosPorCategorias : getProductos;
-      funcionProductos(idCategoria)
-        .then(respuesta => setProductos(respuesta))
-      }, [])
+  useEffect(() => {
+    const funcionProductos = idCategoria ? getProductosPorCategorias : getProductos;
+    funcionProductos(idCategoria)
+      .then(respuesta => setProductos(respuesta))
+      .catch(error => console.error("Error al cargar productos:", error));  
+  }, [idCategoria]);
 
   return (
     <>
@@ -20,8 +20,6 @@ const ItemListContainer = () => {
       <ItemList productos={productos} />
     </>
   );
-}
+};
 
-// Exportación por defecto del componente
 export default ItemListContainer;
-

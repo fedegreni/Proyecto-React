@@ -2,21 +2,22 @@ import { Link } from 'react-router-dom';
 import { CarWidget } from '../CarWidget/CarWidget';
 import './NavBar.css';
 
+
 export const NavBar = () => {
   return (
     <header>
       <h1>
-        <Link to="/">Ropa Online</Link> {/* Navega a la página principal */}
+        <Link to="/">Ropa Online</Link> 
       </h1>
       <nav>
         <li>
-          <Link to="/category/remeras">Remeras</Link> {/* Enladce a la categoría "remeras" */}
+          <Link to="/categoria/remeras">Remeras</Link> 
         </li>
         <li>
-          <Link to="/category/pantalones">Pantalones</Link> {/* Enlace a la categoría "pantalones" */}
+          <Link to="/categoria/pantalones">Pantalones</Link>
         </li>
         <li>
-          <Link to="/category/zapatillas">Zapatillas</Link> {/* Enlace a la categoría "zapatillas" */}
+          <Link to="/categoria/zapatillas">Zapatillas</Link> 
         </li>
       </nav>
       <CarWidget />
