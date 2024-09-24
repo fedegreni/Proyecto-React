@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { getProductos, getProductosPorCategorias } from '../../asynmock'; 
-import ItemList from '../ItemList/ItemList';  
-import { useParams } from 'react-router-dom'; 
-import Loader from '../Loader/Loader'; // Asegúrate de importar Loader con mayúscula
+import { getProductos, getProductosPorCategorias } from '../../asynmock';
+import ItemList from '../ItemList/ItemList';
+import Loader from '../Loader/Loader';
+import { useParams } from 'react-router-dom';
+import './ItemListContainer.css';
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const { idCategoria } = useParams(); 
+  const { idCategoria } = useParams();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -16,17 +17,18 @@ const ItemListContainer = () => {
     funcionProductos(idCategoria)
       .then(respuesta => setProductos(respuesta))
       .catch(error => console.error("Error al cargar productos:", error))
-      .finally(() => {
-        console.log("Proceso finalizado");
-        setLoading(false);
-      });
-  }, [idCategoria]); 
+      .finally(() => setLoading(false));
+  }, [idCategoria]);
 
   return (
-    <>
-      <h2 style={{ textAlign: 'center' }}>Mis productos</h2>
-      {loading ? <Loader /> : <ItemList productos={productos} />}
-    </>
+    <div className="itemListContainer"> {/* Cambiado a "itemListContainer" */}
+      <h2>Mis productos</h2>
+      {loading ? <Loader /> : (
+        <div className="item-list">
+          <ItemList productos={productos} />
+        </div>
+      )}
+    </div>
   );
 };
 

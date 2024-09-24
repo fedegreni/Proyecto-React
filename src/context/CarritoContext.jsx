@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { createContext } from "react";
-import Swal from 'sweetalert2'
+import { useState, createContext } from "react";
+import Swal from 'sweetalert2';
 
 export const CarritoContext = createContext({
     carrito: [],
@@ -45,28 +44,27 @@ export const CarritoProvider = ({ children }) => {
 
     const vaciarCarrito = () => {
         Swal.fire({
-            title: "Estas seguro?",
-            text: "Se eliminaran tus productos!",
+            title: "¿Estás seguro?",
+            text: "Se eliminarán tus productos!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Si, estoy seguro!"
-          }).then((result) => {
+            confirmButtonText: "Sí, estoy seguro!"
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "Eliminado!",
-                text: "Tus productos fueron eliminados...",
-                icon: "success"
-              });
+                
+                setCarrito([]);
+                setTotal(0);
+                setCantidadTotal(0);
+
+                Swal.fire({
+                    title: "Eliminado!",
+                    text: "Tus productos fueron eliminados...",
+                    icon: "success"
+                });
             }
-          });
-       
-       
-       
-        setCarrito([]);
-        setTotal(0);
-        setCantidadTotal(0);
+        });
     };
 
     return (

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getUnProducto } from '../../asynmock'; 
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom'; 
+import './ItemDetailContainer.css'; // Asegúrate de importar el CSS
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
@@ -14,8 +15,8 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div>
-      {producto && <ItemDetail {...producto} />}
+    <div className="item-detail-container"> {/* Clase agregada para estilos */}
+      {producto ? <ItemDetail {...producto} /> : <p>Cargando...</p>} {/* Mensaje de carga */}
     </div>
   );
 };

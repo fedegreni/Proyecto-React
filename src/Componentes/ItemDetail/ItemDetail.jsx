@@ -7,29 +7,25 @@ import { toast } from 'react-toastify';
 
 const ItemDetail = ({ id, nombre, precio, img, stock }) => {
   const [agregarCantidad, setAgregarCantidad] = useState(0);
-
-  // Aquí usa CarritoContext con useContext
   const { agregarAlCarrito } = useContext(CarritoContext);
 
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-
     const item = { id, nombre, precio };
-
     agregarAlCarrito(item, cantidad);
-    toast.success('Agregado al carrito', {autoClase:300, theme: "dark", position: "top-right"});
+    toast.success('Agregado al carrito', { autoClose: 3000, theme: "dark", position: "top-right" });
   };
 
   return (
     <div className='contenedorItem'>
-      <h2>Nombre: {nombre}</h2>
-      <h3>Precio: {precio}</h3>
+      <h2>{nombre}</h2>
+      <h3>Precio: ${precio.toFixed(2)}</h3>
       <h3>ID: {id}</h3>
       <img src={img} alt={nombre} />
-      <p>OFERTA</p>
+      <p className='oferta'>OFERTA</p>
 
       {agregarCantidad > 0 ? (
-        <Link to="/cart">Terminar Compra</Link>
+        <Link to="/cart" className="btn-comprar">Terminar Compra</Link>
       ) : (
         <Contador inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />
       )}

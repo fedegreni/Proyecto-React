@@ -1,13 +1,52 @@
-header {
+
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    padding: 20px; 
+    background-color: #f8f9fa; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-li {
-    list-style: none;
-    padding: 10px;
-    display: inline-block;
-    margin: 10px;
+
+.navbar-title {
+    font-size: 2rem; 
+    color: #007bff; 
+    text-decoration: none; 
+}
+
+
+.navbar-nav {
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+.nav-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: center; 
+}
+
+.nav-list li {
+    margin: 0 15px; 
+}
+
+
+.nav-list a {
+    text-decoration: none; 
+    color: #333; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+
+.nav-list a:hover {
+    color: #007bff; 
+}
+
+
+.car-widget {
+    margin-left: 20px; 
 }

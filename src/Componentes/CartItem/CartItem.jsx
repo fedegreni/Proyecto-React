@@ -1,14 +1,16 @@
 import React from 'react';
+import './CartItem.css'; 
 
-export const CartItem = ({ item, cantidad }) => {
+
+export const CartItem = ({ item, cantidad, img }) => {
   return (
-    <div>
-      <p>Producto: {item.nombre}</p>
-      <p>Precio: ${item.precio}</p>
-      <p>Cantidad: {cantidad}</p>
-      <button className="eliminar-boton" onClick={() => eliminarProducto(item.id)}>
-        Eliminar
-      </button>
+    <div className="cart-item">
+      {/* <img src={item.img} alt={item.nombre} className="cart-item-image" /> */}
+      <div className="cart-item-details">
+        <h3>{item.nombre}</h3>
+        <p>Precio: ${item.precio}</p>
+        <p>Cantidad: {cantidad}</p>
+      </div>
     </div>
   );
 };

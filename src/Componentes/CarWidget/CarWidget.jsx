@@ -5,11 +5,11 @@ import { CarritoContext } from '../../context/CarritoContext';
 import { Link } from 'react-router-dom';
 
 export const CarWidget = () => {
-  const { cantidadTotal } = useContext(CarritoContext); // Asegúrate de destructurar correctamente.
+  const { cantidadTotal } = useContext(CarritoContext); 
 
   return ( 
     <div>
-      <Link to="/cart"> {/* Cambiado de <link> a <Link> */}
+      <Link to="/cart"> 
         <img className="imgCarrito" src={carrito} alt="Carrito" />
       </Link>
       {

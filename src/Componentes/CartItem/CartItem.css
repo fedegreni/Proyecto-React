@@ -1,21 +1,22 @@
+
 .cart-item {
-    padding: 10px;
-    margin: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .eliminar-boton {
-    padding: 8px 12px; /* Aumenta el espacio dentro del botón */
-    background-color: #ff4d4d; /* Color rojo para que destaque */
-    color: white; /* Color del texto en blanco */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Aumenta el tamaño del texto */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s ease; /* Animación suave al pasar por encima */
-  }
-  
-  .eliminar-boton:hover {
-    background-color: #ff3333; /* Color más oscuro al pasar el cursor */
-  }
-  
+  display: flex; 
+  align-items: center; 
+  margin: 10px 0; 
+  padding: 10px; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  background-color: #fff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.cart-item-image {
+  width: 80px; 
+  height: auto; 
+  border-radius: 5px; 
+  margin-right: 10px; 
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}

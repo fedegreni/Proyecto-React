@@ -1,5 +1,5 @@
 .cardProductos {
-    background-color: gray;
+    background-color: #f9f9f9; 
     border-radius: 10px;
     width: 20rem;
     margin: 1rem;
@@ -7,19 +7,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 300px; 
+    min-height: 350px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.cardProductos:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
 .cardProductos img {
-    width: 70%;
+    width: 80%; 
     max-height: 200px; 
     object-fit: contain;
+    border-radius: 5px; 
+    margin-bottom: 10px;
 }
 
-.cardProductos h3, 
+.cardProductos h3 { 
+    margin: 0.5rem 0; 
+    text-align: center;
+    font-size: 1.5rem; 
+    color: #333; 
+}
+
 .cardProductos p {
     margin: 0.5rem 0; 
     text-align: center;
+    font-size: 1rem; 
+    color: #666; 
+}
+
+.precio {
+    font-weight: bold; 
+    color: #007bff; 
 }
 
 .cardProductos button {
@@ -28,4 +50,11 @@
     border-radius: 10px;
     border: none;
     padding: 10px 20px;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    font-size: 1rem; 
+}
+
+.cardProductos button:hover {
+    background-color: rgb(64, 128, 128); 
 }

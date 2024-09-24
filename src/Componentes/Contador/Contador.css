@@ -1,0 +1,50 @@
+.contador-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 20px 0; 
+}
+
+.contador-buttons {
+    display: flex;
+    align-items: center; 
+}
+
+.contador-button {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 15px; 
+    font-size: 1.2rem; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.contador-button:hover {
+    background-color: #0056b3;
+}
+
+.contador-display {
+    font-size: 1.5rem; 
+    margin: 0 10px; 
+    width: 40px; 
+    text-align: center;
+}
+
+.agregar-button {
+    background-color: #28a745; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 1.2rem; 
+    margin-top: 15px;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.agregar-button:hover {
+    background-color: #218838; 
+}
