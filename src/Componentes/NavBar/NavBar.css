@@ -1,52 +1,71 @@
-
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px; 
-    background-color: #f8f9fa; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo {
+    width: 100%;          
+    height: auto;        
+    max-width: 300px;    
+    
+  }
+  
+
+.logo-img {
+    max-height: 60px; 
+    width: auto; 
+    margin-right: 20px; 
+}
 
 .navbar-title {
-    font-size: 2rem; 
-    color: #007bff; 
-    text-decoration: none; 
+    font-size: 2.5rem; 
+    font-weight: bold;
+    background: linear-gradient(90deg, #007bff, #00d4ff); 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease; 
 }
 
+.navbar-title:hover {
+    transform: scale(1.05); 
+}
 
 .navbar-nav {
-    flex-grow: 1; 
-    text-align: center; 
+    flex-grow: 1;
+    text-align: center;
 }
 
 .nav-list {
-    list-style: none; 
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 .nav-list li {
-    margin: 0 15px; 
+    margin: 0 15px;
 }
-
 
 .nav-list a {
-    text-decoration: none; 
-    color: #333; 
-    font-weight: bold; 
-    transition: color 0.3s; 
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
 }
-
 
 .nav-list a:hover {
-    color: #007bff; 
+    color: #007bff;
 }
 
-
 .car-widget {
-    margin-left: 20px; 
+    margin-left: 20px;
 }

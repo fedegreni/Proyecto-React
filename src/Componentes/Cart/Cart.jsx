@@ -1,11 +1,12 @@
-import { useContext } from 'react';
-import { CarritoContext } from '../../context/CarritoContext';
-import { Link } from 'react-router-dom';
-import { CartItem } from '../CartItem/CartItem';
-import './Cart.css'; 
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
+import { Link } from "react-router-dom";
+import { CartItem } from "../CartItem/CartItem";
+import "./Cart.css";
 
 export const Cart = () => {
-  const { carrito, total, cantidadTotal, vaciarCarrito } = useContext(CarritoContext);
+  const { carrito, total, cantidadTotal, vaciarCarrito } =
+    useContext(CarritoContext);
 
   if (cantidadTotal === 0) {
     return (
@@ -25,8 +26,12 @@ export const Cart = () => {
       <div className="cart-summary">
         <h3>Total: ${total}</h3>
         <h3>Total de productos: {cantidadTotal}</h3>
-        <button className="vaciar-button" onClick={vaciarCarrito}>Vaciar Carrito</button>
-        <Link className="checkout-button" to="/checkout">Finalizar compra</Link>
+        <button className="vaciar-button" onClick={vaciarCarrito}>
+          Vaciar Carrito
+        </button>
+        <Link className="checkout-button" to="/checkout">
+          Finalizar compra
+        </Link>
       </div>
     </div>
   );

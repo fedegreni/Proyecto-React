@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
-import { getProductos, getProductosPorCategorias } from '../../asynmock';
-import ItemList from '../ItemList/ItemList';
-import Loader from '../Loader/Loader';
-import { useParams } from 'react-router-dom';
-import './ItemListContainer.css';
+import { useState, useEffect } from "react";
+import ItemList from "../ItemList/ItemList";
+import Loader from "../Loader/Loader";
+import { useParams } from "react-router-dom";
+import "./ItemListContainer.css";
+import { db } from "../../services/config";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -11,19 +12,31 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const misProductos = idCategoria
+      ? query(collection(db, "productos"), where("IdCat", "==", idCategoria))
+      : collection(db, "productos");
     setLoading(true);
-    const funcionProductos = idCategoria ? getProductosPorCategorias : getProductos;
-
-    funcionProductos(idCategoria)
-      .then(respuesta => setProductos(respuesta))
-      .catch(error => console.error("Error al cargar productos:", error))
-      .finally(() => setLoading(false));
+    getDocs(misProductos)
+      .then((res) => {
+        const productos = res.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setProductos(productos);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        console.log("proceso finalizado");
+        setLoading(false);
+      });
   }, [idCategoria]);
 
   return (
-    <div className="itemListContainer"> {/* Cambiado a "itemListContainer" */}
+    <div className="itemListContainer">
       <h2>Mis productos</h2>
-      {loading ? <Loader /> : (
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="item-list">
           <ItemList productos={productos} />
         </div>

@@ -1,13 +1,16 @@
-import { Link } from 'react-router-dom';
-import { CarWidget } from '../CarWidget/CarWidget';
-import './NavBar.css';
+import { Link } from "react-router-dom";
+import { CarWidget } from "../CarWidget/CarWidget";
+import "./NavBar.css";
+import logo from "../../assets/Drip-Logo.png";
 
 export const NavBar = () => {
   return (
     <header className="navbar">
-      <h1 className="navbar-title">
-        <Link to="/">Ropa Online</Link>
-      </h1>
+      <div className="navbar-logo">
+        <Link to="/">
+          <img src={logo} alt="Ropa Online" className="logo-img" />
+        </Link>
+      </div>
       <nav className="navbar-nav">
         <ul className="nav-list">
           <li>
