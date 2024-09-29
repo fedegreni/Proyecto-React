@@ -9,6 +9,7 @@ import { Loader } from "./Componentes/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Checkout from "./Componentes/Checkout/Checkout";
+import Footer from "./Footer/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="checkout" element={<Checkout/>} />
           <Route path="*" element={<h2>Sitio en construccion</h2>} />
         </Routes>
+        <Footer />
       </CarritoProvider>
       <ToastContainer />
     </BrowserRouter>
