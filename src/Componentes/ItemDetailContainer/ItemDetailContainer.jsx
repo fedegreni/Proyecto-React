@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { getUnProducto } from '../../asynmock'; 
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom'; 
 import './ItemDetailContainer.css'; 
@@ -19,7 +18,7 @@ useEffect(() => {
       const nuevoProducto = { id: res.id, ...data }
       setProducto(nuevoProducto)
     })
-    .catch((error) => console.log(error))
+    
 
 }, [id]);
 

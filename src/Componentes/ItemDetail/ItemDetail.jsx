@@ -24,7 +24,6 @@ const ItemDetail = ({ id, nombre, precio, img, stock }) => {
     <div className="contenedorItem">
       <h2>{nombre}</h2>
       <h3>Precio: ${precio.toFixed(2)}</h3>
-
       <img src={img} alt={nombre} />
       <p className="oferta">OFERTA</p>
 

@@ -72,8 +72,7 @@ const Checkout = () => {
                 icon: 'success'
             });
         } catch (error) {
-            console.error("Error al generar el pedido: ", error);
-            setError("Hubo un error al generar el pedido");
+            setError("Hubo un error al generar el pedido", error);
         }
     };
 

@@ -25,7 +25,6 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="checkout" element={<Checkout/>} />
-          <Route path="*" element={<h2>Sitio en construccion</h2>} />
         </Routes>
         <Footer />
       </CarritoProvider>
