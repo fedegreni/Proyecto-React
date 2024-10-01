@@ -5,10 +5,8 @@ import ItemListContainer from "./Componentes/ItemListContainer/ItemListContainer
 import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailContainer";
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./Componentes/Cart/Cart";
-import { Loader } from "./Componentes/Loader/Loader";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Checkout from "./Componentes/Checkout/Checkout";
+import Login from "./Componentes/Login/Login"; // Importar el componente de login
 import Footer from "./Footer/Footer";
 
 function App() {
@@ -23,12 +21,12 @@ function App() {
             element={<ItemListContainer />}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="checkout" element={<Checkout/>} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} /> 
         </Routes>
         <Footer />
       </CarritoProvider>
-      <ToastContainer />
     </BrowserRouter>
   );
 }

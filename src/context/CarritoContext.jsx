@@ -1,16 +1,29 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import { auth } from "../services/config"; 
+import { onAuthStateChanged } from "firebase/auth";
 import Swal from "sweetalert2";
 
 export const CarritoContext = createContext({
     carrito: [],
     total: 0,
     cantidadTotal: 0,
+    usuario: null, 
 });
 
 export const CarritoProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
     const [cantidadTotal, setCantidadTotal] = useState(0);
+    const [usuario, setUsuario] = useState(null); 
+
+    // Monitorea el estado de autenticación
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setUsuario(user); 
+        });
+
+        return () => unsubscribe(); 
+    }, []);
 
     const agregarAlCarrito = (item, cantidad) => {
         const productoExistente = carrito.find((prod) => prod.item.id === item.id);
@@ -53,17 +66,17 @@ export const CarritoProvider = ({ children }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Sí, estoy seguro!"
+            confirmButtonText: "Sí, estoy seguro!",
         }).then((result) => {
             if (result.isConfirmed) {
-                setCarrito([]); 
-                setTotal(0); 
-                setCantidadTotal(0); 
+                setCarrito([]);
+                setTotal(0);
+                setCantidadTotal(0);
 
                 Swal.fire({
                     title: "Eliminado!",
                     text: "Tus productos fueron eliminados...",
-                    icon: "success"
+                    icon: "success",
                 });
             }
         });
@@ -75,6 +88,7 @@ export const CarritoProvider = ({ children }) => {
                 carrito,
                 total,
                 cantidadTotal,
+                usuario, 
                 agregarAlCarrito,
                 eliminarProducto,
                 vaciarCarrito,
