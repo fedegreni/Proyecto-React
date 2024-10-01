@@ -6,7 +6,7 @@ import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailCon
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./Componentes/Cart/Cart";
 import Checkout from "./Componentes/Checkout/Checkout";
-import Login from "./Componentes/Login/Login"; // Importar el componente de login
+import Login from "./Componentes/Login/Login"; 
 import Footer from "./Footer/Footer";
 
 function App() {
