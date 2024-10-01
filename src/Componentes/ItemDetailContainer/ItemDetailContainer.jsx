@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'; 
 import { db } from '../../services/config';
 import { getDoc, doc} from 'firebase/firestore';
+import './ItemDetailContainer.css';
 
 
 
