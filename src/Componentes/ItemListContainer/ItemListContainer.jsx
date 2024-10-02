@@ -4,8 +4,7 @@ import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import { db } from "../../services/config";
 import { getDocs, collection, query, where } from "firebase/firestore";
-import '../ItemListContainer.css';
-
+import './ItemListContainer.css'; 
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -25,7 +24,6 @@ const ItemListContainer = () => {
         });
         setProductos(productos);
       })
-      
       .finally(() => {
         setLoading(false);
       });
