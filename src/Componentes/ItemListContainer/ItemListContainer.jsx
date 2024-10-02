@@ -7,7 +7,6 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 import './ItemListContainer.css';
 
 
-
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const { idCategoria } = useParams();
