@@ -1,4 +1,4 @@
-import carrito from "../../imagenes/107831.png";
+import carrito from "../../assets/107831.png";
 import "./CarWidget.css";
 import { useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
