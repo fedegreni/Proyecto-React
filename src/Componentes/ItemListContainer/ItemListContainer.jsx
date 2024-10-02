@@ -6,6 +6,7 @@ import { db } from "../../services/config";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
 
+
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const { idCategoria } = useParams();
